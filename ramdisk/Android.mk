@@ -12,7 +12,7 @@ LOCAL_MODULE_PATH	:= $(TARGET_ROOT_OUT)
 include $(BUILD_PREBUILT)
 
 # Reduce zRAM size from 48MB -> 32MB for galaxy5
-ifneq (,$(filter galaxy5,$(CM_BUILD)))
+ifneq (,$(filter galaxy5,$(CUSTOM_BUILD)))
 $(LOCAL_BUILT_MODULE): $(LOCAL_PATH)/$(LOCAL_SRC_FILES)
 	@echo "Adjust zRAM size for fstab.$(SAMSUNG_BOOTLOADER): $< -> $@"
 	@mkdir -p $(dir $@)
@@ -52,7 +52,7 @@ LOCAL_MODULE_PATH	:= $(TARGET_ROOT_OUT)
 
 include $(BUILD_PREBUILT)
 
-ifneq (,$(filter callisto galaxy5,$(CM_BUILD)))
+ifneq (,$(filter callisto galaxy5,$(CUSTOM_BUILD)))
 $(LOCAL_BUILT_MODULE): $(LOCAL_PATH)/$(LOCAL_SRC_FILES)
 	@echo "Adjust Bluetooth firmware for $(SAMSUNG_BOOTLOADER): $< -> $@"
 	@mkdir -p $(dir $@)
